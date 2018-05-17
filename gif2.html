@@ -107,10 +107,12 @@ var giffs = ["Andy Kaufman", "Al Pacino", "Robert Deniro", "Henry Rollins", "Joh
 
 
       // Event listener for all button elements
-    $("#ecclectic-buttons").on("click", function() {
+    //$("#ecclectic-buttons").on("click", function()
+    $("#ecclectic-buttons").on("click", "button", function(){
+      
       // In this case, the "this" keyword refers to the button that was clicked
-      var person = $("#ecclectic-buttons").attr("data-person");
-      person ="Andy Kaufman"
+      var person = $(this).attr("data-person");
+      //alert(person);
       console.log(this);
       console.log(person);
       
