@@ -7,40 +7,58 @@
 </head>
 
 <style type="text/css">
-    #ecclectic-buttons{
-        margin: 20px;
-        padding: 10,10,10,10;
-    }
 
+    #addEcclectic,
     button{
-        background-color: aqua;
-        margin: 10px;
-
+        background-color: rgb(11, 240, 240);
+        margin: 15px;
+        border: none;
+        color: rgb(20, 19, 19);
+        padding: 15px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 12px;
     }
 
-
+    #ecclectic-form{
+        float: right;
+        font-size: 20px;
+    }
 
     div,
-    form,
-    input {
+    form {
       margin: 15px;
     }
+
+    .item{
+        float: left;
+    }
+
+    #ecclectic{
+        width: 1600px;
+    }
+
   </style>
 
 <body>
 
 <div id="ecclectic-buttons">
 
-        <button></button>
-
 </div>
 
-<form id="ecclectic-form"></form>
+<form id="ecclectic-form">
     <label for="ecclectic-input">Add your own choice here: </label>
+    </br>
     <input type="text" id="ecclectic-input">
     </br>
     <input id="addEcclectic" type="submit" value="Submit">
 </form>
+
+</br>
 </br>
 
 <div id="ecclectic">
@@ -89,18 +107,20 @@ var giffs = ["Andy Kaufman", "Al Pacino", "Robert Deniro", "Henry Rollins", "Joh
 
 
       // Event listener for all button elements
-    $("#ecclectic-buttons").on("click", function() {
+    //$("#ecclectic-buttons").on("click", function()
+    $("#ecclectic-buttons").on("click", "button", function(){
+      
       // In this case, the "this" keyword refers to the button that was clicked
-      var person = $("#ecclectic-buttons").attr("data-person");
-      //person ="Andy Kaufman"
+      var person = $(this).attr("data-person");
+      //alert(person);
       console.log(this);
       console.log(person);
-      //"<button>""#ecclectic-buttons"
+      
 
       // Constructing a URL to search Giphy for the name of the person who said the quote
             
       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        encodeURI(person) + "&api_key=dc6zaTOxFJmzC&limit=1";
+        encodeURI(person) + "&api_key=dc6zaTOxFJmzC&limit=19";
 
         console.log(queryURL);
         
